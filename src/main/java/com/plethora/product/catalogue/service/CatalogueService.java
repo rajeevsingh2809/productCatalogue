@@ -1,19 +1,21 @@
 package com.plethora.product.catalogue.service;
 
 import java.util.List;
-import com.plethora.product.catalogue.model.Product;
-import com.plethora.product.catalogue.model.ServiceResponse;
+
+import com.plethora.product.catalogue.bean.Product;
 
 public interface CatalogueService {
 
 	List<Product> getProducts(String productType);
 
-	ServiceResponse addProduct(Product product);
+	int addProduct(Product product);
 
-	Product getProduct(Long productId);
+	Product getProduct(int productId);
 
-	ServiceResponse updateProduct(Product product);
+	Product updateProduct(Product product);
 
-	ServiceResponse deleteProduct(Long productId);
+	Product deleteProduct(int productId);
+
+	List<Product> getProductTypeAndCountOfProducts();
 
 }

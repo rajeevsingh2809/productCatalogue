@@ -1,4 +1,4 @@
-package com.plethora.product.catalogue.model;
+package com.plethora.product.catalogue.entity;
 
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;

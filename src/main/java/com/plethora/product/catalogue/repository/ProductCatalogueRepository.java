@@ -8,16 +8,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.plethora.product.catalogue.model.Product;
+import com.plethora.product.catalogue.entity.ProductEntity;
 
 @Transactional
-public interface ProductCatalogueRepository extends JpaRepository<Product, String> {
+public interface ProductCatalogueRepository extends JpaRepository<ProductEntity, String> {
 
-	List<Product> findByProductType(String type);
+	List<ProductEntity> findByProductType(String type);
 
-	Product findByProductId(Long id);
+	ProductEntity findByProductId(Integer id);
 	
-	/*@Query("SELECT p.product_type FROM Product p WHERE p.product_type = :productType)")
-	List<Product> groupByFilter(@Param("productType")String productType);*/
+	@Query("select count(k),k.productType from ProductEntity k group by k.productType") 
+	List getProductTypeAndCountOfProducts();
+
+	@Query("select k from ProductEntity k where k.price>=:price1 and k.price=:price2")
+	List<ProductEntity> getAllProductsByPrice(@Param("price1")Double price1, @Param("price2")Double price2);
 	
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.plethora.product.catalogue.model.ServiceError;
+import com.plethora.product.catalogue.entity.ServiceError;
 
 @ControllerAdvice
 public class ProductCatalogueExceptionHandler extends ResponseEntityExceptionHandler {
